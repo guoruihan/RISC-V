@@ -155,13 +155,13 @@ namespace Init{
 			else
 			{
 				unsigned int val=trans_HD(str),base=1;
-				st[np+3]=(val&((1<<8)-1));
+				st[np]=(val&((1<<8)-1));
 				for(int i=1;i<=3;i++)
 				{
 					scanf("%s",str);
 					base<<=8;
 					val += trans_HD(str)*base;
-					st[np+3-i]=(trans_HD(str)&((1<<8)-1));
+					st[np+i]=(trans_HD(str)&((1<<8)-1));
 				}
 				calc(np,val);
 	//			prt_H(np),prt_H(val);s[np].prt();
@@ -178,11 +178,11 @@ namespace Simu{
 	}
 	unsigned int ext(int pos,int len,int tag)
 	{
-		unsigned int val=0;
+		unsigned int val=0,base=0;
 		for(int i=len;i;i-=8)
 		{
-			val<<=8;
-			val+=st[pos];
+			val+=st[pos]<<(base<<3);
+			++base;
 			pos++;
 		}
 		if(!tag)return val;
@@ -193,15 +193,12 @@ namespace Simu{
 	void savedata(int pos,int val,int len)
 	{
 		unsigned int base = (1<<8)-1;
-		pos+=(len>>3)-1;
 		int cnt=0;
 		for(int i=0;i<len>>3;i++)
 		{
 //			printf("\n\n%d\n\n",(val&base)>>(cnt<<3));
-			st[pos]=(val&base)>>(cnt<<3);
-			base<<=8;
-			cnt++;
-			pos--;
+			st[pos+i]=(val&base);
+			val>>=8;
 		}
 	}
 	void debug()
@@ -584,9 +581,12 @@ namespace Simu{
 	}
 	void pro()
 	{
+//		int tmp=0;
 		while(1)
 		{
 //			printf("%d ",pc);
+//			for(int i=0;i<32;i++)
+//				printf("%d ",x[i]);printf("\n");
 			if(s[pc].val==fintag)
 			{
 				printf("%u\n",x[10]&255u);
@@ -595,8 +595,6 @@ namespace Simu{
 //			debug();
 			nextstep();
 			x[0]=0;
-//			for(int i=0;i<32;i++)
-//				printf("%d ",x[i]);printf("\n");
 		}
 	}
 }
