@@ -49,7 +49,7 @@ struct Exe{
 		printf("\n");
 	}
 }s[200005];
-int st[200005];
+unsigned int st[200005];
 namespace Init{
 	char str[105];
 	unsigned int getval_H(char c)
@@ -155,13 +155,13 @@ namespace Init{
 			else
 			{
 				unsigned int val=trans_HD(str),base=1;
-				st[np]=(char)(val&((1<<8)-1));
+				st[np+3]=(val&((1<<8)-1));
 				for(int i=1;i<=3;i++)
 				{
 					scanf("%s",str);
 					base<<=8;
 					val += trans_HD(str)*base;
-					st[np+i]=(char)(trans_HD(str)&((1<<8)-1));
+					st[np+3-i]=(trans_HD(str)&((1<<8)-1));
 				}
 				calc(np,val);
 	//			prt_H(np),prt_H(val);s[np].prt();
