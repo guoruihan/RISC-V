@@ -602,8 +602,6 @@ namespace Simu{
 }
 int main()
 {
-	freopen("try.in","r",stdin);
-///	freopen("try.out","w",stdout);
 	Init::pro();
 	Simu::init();
 	Simu::pro();
