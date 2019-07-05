@@ -33,7 +33,6 @@ void pro()
     }
 }
 int main() {
-    freopen("try.in","r",stdin);
     Init::pro();
     pro();
     return 0;
