@@ -75,6 +75,7 @@ namespace ID{
         if(!s[1].exist) return;
         calc(2,s[1].exe);
         s[2].exist=1;
-    }
+ //s[2].prt();
+}
 }
 #endif //RISCV_ID_H

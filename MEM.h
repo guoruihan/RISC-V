@@ -7,7 +7,8 @@
 
 #include"init.h"
 
-namespace MEM {    unsigned int ext(int pos,int len,int tag)
+namespace MEM {
+    unsigned int ext(int pos,int len,int tag)
     {
         unsigned int val=0,base=0;
         for(int i=len;i;i-=8)

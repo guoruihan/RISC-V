@@ -19,6 +19,7 @@ void nextstep()
 }
 void pro()
 {
+    int tmp=0;
     while(1)
     {
         if(IF::ext(pc)==fintag)
@@ -28,6 +29,16 @@ void pro()
         }
 //			debug();
         nextstep();
+        tmp++;
+ /*       if(tmp<=100)
+            printf("%d %d %d\n",pc,IF::ext(pc),st[4464]);
+        if(tmp<=100) {
+            for (int i = 0; i < 32; i++)
+                printf("%d ", x[i]);
+            printf(" %d\n",tmp);
+        }
+        else
+            return;*/
 //			for(int i=0;i<32;i++)
 //				printf("%d ",x[i]);printf("\n");
     }
