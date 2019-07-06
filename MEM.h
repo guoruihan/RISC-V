@@ -34,8 +34,13 @@ namespace MEM {
         }
     }
     void pro() {
-        s[4].cl();
+        if(s[4].exist)return;
         if(!s[3].exist)return;
+        if (s[3].exe == fintag){
+            s[4]=s[3];
+            s[3].cl();
+            return;
+        }
         unsigned int rs1=s[3].rs1,rs2=s[3].rs2,rd=s[3].rd;
         unsigned int im=s[3].im,exim=s[3].exim;
         unsigned int funct7=s[3].funct7,funct3=s[3].funct3,opcode=s[3].opcode;
@@ -64,6 +69,7 @@ namespace MEM {
         }// dark red part;
         if(opcode==0x23)
         {
+            beused2[s[3].rd]--;
             switch(funct3)
             {
                 case 0:
@@ -81,20 +87,21 @@ namespace MEM {
         }//light red part;
         if(opcode==0x63)
         {
-            if(s[3].npc!=pc)
+            if(s[3].npc!=pc+4)
                 pc=s[3].npc,jump=1;
         }
         if(opcode==0x6f)
         {
-            if(s[3].npc!=pc)
+            if(s[3].npc!=pc+4)
                 pc=s[3].npc,jump=1;
         }
         if(opcode==0x67)
         {
-            if(s[3].npc!=pc)
+            if(s[3].npc!=pc+4)
                 pc=s[3].npc,jump=1;
         }
         s[4]=s[3];
+        s[3].cl();
     }
 }
 

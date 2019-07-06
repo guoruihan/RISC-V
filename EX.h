@@ -10,13 +10,20 @@
 namespace EX{
     void pro()
     {
-        s[3].cl();
+        if(s[3].exist)return;
         if(!s[2].exist) return;
+        if (s[2].exe == fintag){
+            s[3]=s[2];
+            s[2].cl();
+            return;
+        }
         unsigned int rs1=s[2].rs1,rs2=s[2].rs2,rd=s[2].rd;
         unsigned int im=s[2].im,exim=s[2].exim;
         unsigned int funct7=s[2].funct7,funct3=s[2].funct3,opcode=s[2].opcode;
+        unsigned int pc=s[2].pc;
         if(opcode==0x33)
         {
+            beused1[rd]++;
             switch(funct3)
             {
                 case 0:
@@ -60,6 +67,7 @@ namespace EX{
     } // green part;
         if(opcode==0x13)
         {
+            beused1[rd]++;
             switch(funct3)
             {
                 case 0:
@@ -102,6 +110,7 @@ namespace EX{
         } // yellow part;
         if(opcode==0x3)
         {
+            beused1[rd]++;
             switch(funct3)
             {
                 case 0:
@@ -125,6 +134,7 @@ namespace EX{
         }// dark red part;
         if(opcode==0x23)
         {
+            beused2[x[rs1]+exim]++;
             switch(funct3)
             {
                 case 0:
@@ -149,39 +159,39 @@ namespace EX{
             {
                 case 0:
                     if(x[rs1]==x[rs2])
-                        s[2].npc=pc+exim-4;
+                        s[2].npc=pc+exim;
                     else
-                        s[2].npc=pc;
+                        s[2].npc=pc+4;
                     break;
                 case 1:
                     if(x[rs1]!=x[rs2])
-                        s[2].npc=pc+exim-4;
+                        s[2].npc=pc+exim;
                     else
-                        s[2].npc=pc;
+                        s[2].npc=pc+4;
                     break;
                 case 4:
                     if((int)x[rs1]<(int)x[rs2])
-                        s[2].npc=pc+exim-4;
+                        s[2].npc=pc+exim;
                     else
-                        s[2].npc=pc;
+                        s[2].npc=pc+4;
                     break;
                 case 5:
                     if((int)x[rs1]>=(int)x[rs2])
-                        s[2].npc=pc+exim-4;
+                        s[2].npc=pc+exim;
                     else
-                        s[2].npc=pc;
+                        s[2].npc=pc+4;
                     break;
                 case 6:
                     if(x[rs1]<x[rs2])
-                        s[2].npc=pc+exim-4;
+                        s[2].npc=pc+exim;
                     else
-                        s[2].npc=pc;
+                        s[2].npc=pc+4;
                     break;
                 case 7:
                     if(x[rs1]>=x[rs2])
-                        s[2].npc=pc+exim-4;
+                        s[2].npc=pc+exim;
                     else
-                        s[2].npc=pc;
+                        s[2].npc=pc+4;
                     break;
                 default:
                     break;
@@ -189,23 +199,28 @@ namespace EX{
         }// blue part;
         if(opcode==0x37)
         {
+            beused1[rd]++;
             s[2].ans=exim<<12;
         }
         if(opcode==0x17)
         {
-            s[2].ans=(exim<<12)+pc-4;
+            beused1[rd]++;
+            s[2].ans=(exim<<12)+pc;
         }
         if(opcode==0x6f)
         {
-            s[2].ans=pc;
-            s[2].npc=pc+exim-4;
+            beused1[rd]++;
+            s[2].ans=pc+4;
+            s[2].npc=pc+exim;
         }
         if(opcode==0x67)
         {
-            s[2].ans=pc;
+            beused1[rd]++;
+            s[2].ans=pc+4;
             s[2].npc=x[rs1]+exim;
         }
         s[3]=s[2];
+        s[2].cl();
     }
 }
 

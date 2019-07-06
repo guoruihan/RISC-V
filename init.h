@@ -5,6 +5,8 @@
 #ifndef RISCV_INIT_H
 #define RISCV_INIT_H
 bool jump;
+int beused1[35];
+int beused2[200005];
 void prt_H(unsigned int val)
 {
     bool tag=0;
@@ -34,8 +36,9 @@ struct RE {
     unsigned int funct7,funct3,opcode;
     bool exist;
     unsigned int npc;
+    int pc;
     void cl() {
-        exist=npc=rs1=rs2=funct7=funct3=opcode=ans=exe=rd=0;
+        im=exim=pc=exist=npc=rs1=rs2=funct7=funct3=opcode=ans=exe=rd=0;
     }
     void prt()
     {
@@ -47,9 +50,11 @@ struct RE {
         prt_H(funct7);
         prt_H(funct3);
         prt_H(opcode);
+        prt_H(exe);
+        printf("%d %d %d %d ",exist,pc,ans,npc);
         printf("\n");
     }
-}s[15];
+}s[15],stmp;
 unsigned int x[32],pc;
 const unsigned int fintag = 13009443;
 unsigned int fw1(int p1,int p2)
@@ -79,6 +84,8 @@ namespace Init{
     }
     void pro()
     {
+        memset(beused1,0,sizeof(beused1));
+        memset(beused2,0,sizeof(beused2));
         for(int i=0;i<200000;i++)
             st[i]=0;
         int np=0;

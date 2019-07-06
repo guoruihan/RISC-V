@@ -11,9 +11,17 @@ namespace WB{
     void pro(){
         int opcode=s[4].opcode;
         if(!s[4].exist)return;
-        if(opcode==0x23) return;
-        if(opcode==0x63) return;
+        if(opcode==0x23){
+            s[4].cl();
+            return;
+        }
+        if(opcode==0x63){
+            s[4].cl();
+            return;
+        }
         x[s[4].rd]=s[4].ans;
+        beused1[s[4].rd]--;
+        s[4].cl();
     }
 }
 
