@@ -32,10 +32,11 @@ namespace IF {
         }
     }
     void pro() {
-        if (jump) {
+        if(jump==2)return;
+        if (jump==1) {
             jump=0;
             clbeused();
-            for(int i=1;i<=3;i++)
+            for(int i=1;i<=4;i++)
                 s[i].exist=0;
         }
         if(s[1].exist)return;

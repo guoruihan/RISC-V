@@ -12,6 +12,7 @@ namespace EX{
     {
         if(s[3].exist)return;
         if(!s[2].exist) return;
+        if(jump)return;
         if (s[2].exe == fintag){
             s[3]=s[2];
             s[2].cl();

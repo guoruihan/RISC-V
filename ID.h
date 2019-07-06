@@ -96,6 +96,7 @@ namespace ID {
     void pro() {
         if (s[2].exist)return;
         if (!s[1].exist) return;
+        if(jump)return;
         if (s[1].exe == fintag){
             s[2]=s[1];
             s[1].cl();

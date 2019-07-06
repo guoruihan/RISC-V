@@ -4,9 +4,9 @@
 
 #ifndef RISCV_INIT_H
 #define RISCV_INIT_H
-bool jump;
+int jump;
 int beused1[35];
-int beused2[200005];
+int beused2[400005];
 void prt_H(unsigned int val)
 {
     bool tag=0;
@@ -55,13 +55,13 @@ struct RE {
         printf("\n");
     }
 }s[15],stmp;
-unsigned int x[32],pc;
+unsigned int x[33],pc;
 const unsigned int fintag = 13009443;
 unsigned int fw1(int p1,int p2)
 {
     return ((1<<(p1-p2+1))-1)<<p2;
 }
-unsigned int st[200005];
+unsigned int st[400005];
 namespace Init{
     char str[105];
     unsigned int getval_H(char c)

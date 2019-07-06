@@ -11,6 +11,11 @@ namespace WB{
     void pro(){
         int opcode=s[4].opcode;
         if(!s[4].exist)return;
+        if(jump==2)jump--;
+        if (s[4].exe == fintag){
+            s[4].cl();
+            return;
+        }
         if(opcode==0x23){
             s[4].cl();
             return;
