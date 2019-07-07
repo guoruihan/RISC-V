@@ -32,8 +32,7 @@ namespace IF {
         }
     }
     void pro() {
-        if(jump==2)return;
-        if (jump==1) {
+        if (jump) {
             jump=0;
             clbeused();
             for(int i=1;i<=4;i++)

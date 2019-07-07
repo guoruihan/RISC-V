@@ -6,7 +6,7 @@
 #define RISCV_MEM_H
 
 #include"init.h"
-
+#include"WB.h"
 namespace MEM {
     unsigned int ext(int pos,int len,int tag)
     {
@@ -93,20 +93,18 @@ namespace MEM {
             if(s[3].npc!=npc+4)
                 pc=s[3].npc,jump=1;
         }
-        if(opcode==0x6f)
+        if(opcode==0x6f||opcode==0x67)
         {
             mayjump--;
-            if(s[3].npc!=npc+4)
-                pc=s[3].npc,jump=2;
-        }
-        if(opcode==0x67)
-        {
-            mayjump--;
-            if(s[3].npc!=npc+4)
-                pc=s[3].npc,jump=2;
+            if(s[3].npc!=npc+4) {
+                pc = s[3].npc, jump = 1;
+            }
         }
         s[4]=s[3];
         s[3].cl();
+        if(opcode==0x6f||opcode==0x67){
+            WB::pro();
+        }
     }
 }
 

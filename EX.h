@@ -112,47 +112,13 @@ namespace EX{
         if(opcode==0x3)
         {
             beused1[rd]++;
-            switch(funct3)
-            {
-                case 0:
-                    s[2].rs1=x[rs1]+exim;
-                    break;
-                case 1:
-                    s[2].rs1=x[rs1]+exim;
-                    break;
-                case 2:
-                    s[2].rs1=x[rs1]+exim;
-                    break;
-                case 4:
-                    s[2].rs1=x[rs1]+exim;
-                    break;
-                case 5:
-                    s[2].rs1=x[rs1]+exim;
-                    break;
-                default:
-                    break;
-            }
+            s[2].rs1=x[rs1]+exim;
         }// dark red part;
         if(opcode==0x23)
         {
             beused2[x[rs1]+exim]++;
-            switch(funct3)
-            {
-                case 0:
-                    s[2].rd=x[rs1]+exim;
-                    s[2].ans=x[rs2];
-                    break;
-                case 1:
-                    s[2].rd=x[rs1]+exim;
-                    s[2].ans=x[rs2];
-                    break;
-                case 2:
-                    s[2].rd=x[rs1]+exim;
-                    s[2].ans=x[rs2];
-                    break;
-                default:
-                    break;
-            }
+            s[2].rd=x[rs1]+exim;
+            s[2].ans=x[rs2];
         }//light red part;
         if(opcode==0x63)
         {
