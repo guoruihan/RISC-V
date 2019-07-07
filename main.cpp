@@ -27,22 +27,22 @@ void pro()
     int tmp=0;
     while(1)
     {
-  /*      tmp++;
-        if(tmp<=100) {
+   /*     tmp++;
+        if(tmp<=1000) {
             printf("%d %d\n",pc,IF::ext(pc));
         }*/
         if(s[4].exe==fintag&&s[4].exist)
         {
             printf("%u\n",x[10]&255u);
 
- /*           for (int i = 0; i < 32; i++)
+/*            for (int i = 0; i < 32; i++)
                 printf("%d ", x[i]);
             printf("%d\n",tmp);*/
             return;
         }
 //			debug();
         nextstep();
-  /*      if(tmp<=100){
+ /*       if(tmp<=1000){
             s[1].prt();s[2].prt();s[3].prt();s[4].prt();
             for (int i = 0; i < 32; i++)
                 printf("%d ", x[i]);
@@ -53,6 +53,8 @@ void pro()
     }
 }
 int main() {
+//    freopen("try.in","r",stdin);
+ //   freopen("try.out","w",stdout);
     Init::pro();
     pro();
     return 0;
