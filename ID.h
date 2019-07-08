@@ -108,8 +108,12 @@ namespace ID {
         s[1].cl();
         if(s[2].opcode==0x63)
         {
-            s[2].jumpacqui=1;
-            pc=s[2].pc+s[2].exim;
+            if(tag[s[2].pc]<=1)
+                s[2].jumpacqui=0;
+            else{
+                s[2].jumpacqui=1;
+                pc=s[2].pc+s[2].exim;
+            }
         }
      //s[2].prt();
     }

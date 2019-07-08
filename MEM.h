@@ -86,12 +86,19 @@ namespace MEM {
                     break;
             }
         }//light red part;
-        if(opcode==0x63)
-        {
-            if(s[3].jumptag==1&&s[3].jumpacqui==0)
-                pc=s[3].npc,jump=1;
-            if(s[3].jumptag==0&&s[3].jumpacqui==1)
-                pc=s[3].pc+4,jump=1;
+        if(opcode==0x63) {
+            if (s[3].jumptag == 1 && s[3].jumpacqui == 0)
+                pc = s[3].npc, jump = 1;
+            if (s[3].jumptag == 0 && s[3].jumpacqui == 1)
+                pc = s[3].pc + 4, jump = 1;
+            if (s[3].jumptag) {
+                if(tag[s[3].pc]!=3)
+                    tag[s[3].pc]++;
+            }
+            if (!s[3].jumptag) {
+                if(tag[s[3].pc]!=0)
+                    tag[s[3].pc]--;
+            }
         }
         if(opcode==0x6f||opcode==0x67)
         {

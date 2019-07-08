@@ -6,6 +6,7 @@
 #define RISCV_INIT_H
 int jump;
 int beused1[35];
+int tag[400005];
 void prt_H(unsigned int val)
 {
     bool tag=0;
@@ -86,6 +87,7 @@ namespace Init{
     void pro()
     {
         memset(beused1,0,sizeof(beused1));
+        memset(tag,0,sizeof(tag));
         for(int i=0;i<200000;i++)
             st[i]=0;
         int np=0;
