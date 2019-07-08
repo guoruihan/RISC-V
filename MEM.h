@@ -88,7 +88,6 @@ namespace MEM {
         }//light red part;
         if(opcode==0x63)
         {
-            mayjump--;
             if(s[3].jumptag==1&&s[3].jumpacqui==0)
                 pc=s[3].npc,jump=1;
             if(s[3].jumptag==0&&s[3].jumpacqui==1)
@@ -96,7 +95,6 @@ namespace MEM {
         }
         if(opcode==0x6f||opcode==0x67)
         {
-            mayjump--;
             pc = s[3].npc, jump = 1;
         }
         s[4]=s[3];

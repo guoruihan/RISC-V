@@ -5,7 +5,6 @@
 #ifndef RISCV_INIT_H
 #define RISCV_INIT_H
 int jump;
-int mayjump;
 int beused1[35];
 void prt_H(unsigned int val)
 {
@@ -86,7 +85,6 @@ namespace Init{
     }
     void pro()
     {
-        mayjump=0;
         memset(beused1,0,sizeof(beused1));
         for(int i=0;i<200000;i++)
             st[i]=0;

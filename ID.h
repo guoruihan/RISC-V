@@ -96,7 +96,6 @@ namespace ID {
         if (s[2].exist)return;
         if (!s[1].exist) return;
         if(jump)return;
-        if(mayjump)return;
         if (s[1].exe == fintag){
             s[2]=s[1];
             s[1].cl();
@@ -105,8 +104,6 @@ namespace ID {
         calc(1,s[1].exe);
         if(chk())//1:hazard 0 no hazard
             return;
-        if(s[1].opcode==0x67||s[1].opcode==0x6f||s[1].opcode==0x63)
-            mayjump++;
         s[2]=s[1];
         s[1].cl();
         if(s[2].opcode==0x63)
