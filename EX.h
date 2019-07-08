@@ -126,39 +126,27 @@ namespace EX{
             {
                 case 0:
                     if(x[rs1]==x[rs2])
-                        s[2].npc=pc+exim;
-                    else
-                        s[2].npc=pc+4;
+                        s[2].npc=pc+exim,s[2].jumptag=1;
                     break;
                 case 1:
                     if(x[rs1]!=x[rs2])
-                        s[2].npc=pc+exim;
-                    else
-                        s[2].npc=pc+4;
+                        s[2].npc=pc+exim,s[2].jumptag=1;
                     break;
                 case 4:
                     if((int)x[rs1]<(int)x[rs2])
-                        s[2].npc=pc+exim;
-                    else
-                        s[2].npc=pc+4;
+                        s[2].npc=pc+exim,s[2].jumptag=1;
                     break;
                 case 5:
                     if((int)x[rs1]>=(int)x[rs2])
-                        s[2].npc=pc+exim;
-                    else
-                        s[2].npc=pc+4;
+                        s[2].npc=pc+exim,s[2].jumptag=1;
                     break;
                 case 6:
                     if(x[rs1]<x[rs2])
-                        s[2].npc=pc+exim;
-                    else
-                        s[2].npc=pc+4;
+                        s[2].npc=pc+exim,s[2].jumptag=1;
                     break;
                 case 7:
                     if(x[rs1]>=x[rs2])
-                        s[2].npc=pc+exim;
-                    else
-                        s[2].npc=pc+4;
+                        s[2].npc=pc+exim,s[2].jumptag=1;
                     break;
                 default:
                     break;

@@ -36,10 +36,11 @@ struct RE {
     int rd;
     unsigned int funct7,funct3,opcode;
     bool exist;
+    bool jumptag;
     unsigned int npc;
     int pc;
     void cl() {
-        im=exim=pc=exist=npc=rs1=rs2=funct7=funct3=opcode=ans=exe=rd=0;
+        jumptag=im=exim=pc=exist=npc=rs1=rs2=funct7=funct3=opcode=ans=exe=rd=0;
     }
     void prt()
     {
