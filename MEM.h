@@ -71,7 +71,6 @@ namespace MEM {
         }// dark red part;
         if(opcode==0x23)
         {
-            beused2[s[3].rd]--;
             switch(funct3)
             {
                 case 0:
@@ -90,7 +89,7 @@ namespace MEM {
         if(opcode==0x63)
         {
             mayjump--;
-            if(s[3].jumptag&&s[3].jumpacqui==0)
+            if(s[3].jumptag==1&&s[3].jumpacqui==0)
                 pc=s[3].npc,jump=1;
             if(s[3].jumptag==0&&s[3].jumpacqui==1)
                 pc=s[3].pc+4,jump=1;

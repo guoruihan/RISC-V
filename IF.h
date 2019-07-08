@@ -23,9 +23,6 @@ namespace IF {
         int opcode;
         if(s[3].exist){
             opcode=s[3].opcode;
-            if(opcode==0x23) {
-                beused2[s[3].rd]--;
-            }
             if(opcode!=0x23&&opcode!=0x63){
                 beused1[s[3].rd]--;
             }

@@ -116,7 +116,6 @@ namespace EX{
         }// dark red part;
         if(opcode==0x23)
         {
-            beused2[x[rs1]+exim]++;
             s[2].rd=x[rs1]+exim;
             s[2].ans=x[rs2];
         }//light red part;

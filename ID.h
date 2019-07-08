@@ -77,8 +77,6 @@ namespace ID {
      //       printf("%d guagua",x[rs1] + exim);
             if(beused1[rs1])
                 return 1;
-            if (beused2[x[rs1] + exim])
-                return 1;
         }// dark red part;
         if (opcode == 0x23) {
             if (beused1[rs1]||beused1[rs2])
@@ -112,7 +110,9 @@ namespace ID {
         s[2]=s[1];
         s[1].cl();
         if(s[2].opcode==0x63)
+        {
             s[2].jumpacqui=0;
+        }
      //s[2].prt();
     }
 }
