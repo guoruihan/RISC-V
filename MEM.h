@@ -34,6 +34,11 @@ namespace MEM {
         }
     }
     void pro() {
+        if(cnt4!=0)
+        {
+            cnt4--;
+            return;
+        }
         if(s[4].exist)return;
         if(!s[3].exist)return;
         if(jump)return;
@@ -42,6 +47,7 @@ namespace MEM {
             s[3].cl();
             return;
         }
+        cnt4=3;
         unsigned int rs1=s[3].rs1,rs2=s[3].rs2,rd=s[3].rd;
         unsigned int im=s[3].im,exim=s[3].exim;
         unsigned int funct7=s[3].funct7,funct3=s[3].funct3,opcode=s[3].opcode;
@@ -107,7 +113,7 @@ namespace MEM {
         s[4]=s[3];
         s[3].cl();
         if(opcode==0x6f||opcode==0x67){
-            WB::pro();
+            WB::pro(1);
         }
     }
 }

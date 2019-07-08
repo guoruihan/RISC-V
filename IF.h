@@ -29,6 +29,7 @@ namespace IF {
         }
     }
     void pro() {
+        if(cnt4!=0)return;
         if (jump) {
             jump=0;
             clbeused();

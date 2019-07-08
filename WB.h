@@ -8,7 +8,8 @@
 #include"init.h"
 
 namespace WB{
-    void pro(){
+    void pro(int tag){
+        if(cnt4!=0&&(!tag))return;
         int opcode=s[4].opcode;
         if(!s[4].exist)return;
         if (s[4].exe == fintag){

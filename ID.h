@@ -93,6 +93,7 @@ namespace ID {
         return 0;
     }
     void pro() {
+        if(cnt4!=0)return;
         if (s[2].exist)return;
         if (!s[1].exist) return;
         if(jump)return;

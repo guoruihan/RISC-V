@@ -10,6 +10,7 @@
 namespace EX{
     void pro()
     {
+        if(cnt4!=0)return;
         if(s[3].exist)return;
         if(!s[2].exist) return;
         if(jump)return;

@@ -16,7 +16,7 @@ void nextstep()
     EX::pro();x[0]=0;
     MEM::pro();x[0]=0;
     WB::pro();x[0]=0;*/
-    WB::pro();x[0]=0;
+    WB::pro(0);x[0]=0;
     MEM::pro();x[0]=0;
     EX::pro();x[0]=0;
     ID::pro();x[0]=0;
@@ -53,6 +53,8 @@ void pro()
     }
 }
 int main() {
+    freopen("try.in","r",stdin);
+ //   freopen("try.out","w",stdout);
     Init::pro();
     pro();
     return 0;
