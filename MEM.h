@@ -90,8 +90,10 @@ namespace MEM {
         if(opcode==0x63)
         {
             mayjump--;
-            if(s[3].jumptag)
+            if(s[3].jumptag&&s[3].jumpacqui==0)
                 pc=s[3].npc,jump=1;
+            if(s[3].jumptag==0&&s[3].jumpacqui==1)
+                pc=s[3].pc+4,jump=1;
         }
         if(opcode==0x6f||opcode==0x67)
         {

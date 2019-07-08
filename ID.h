@@ -111,6 +111,8 @@ namespace ID {
             mayjump++;
         s[2]=s[1];
         s[1].cl();
+        if(s[2].opcode==0x63)
+            s[2].jumpacqui=0;
      //s[2].prt();
     }
 }
