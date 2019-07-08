@@ -65,7 +65,7 @@ namespace EX{
                 default:
                     break;
             }
-    } // green part;
+        } // green part;
         if(opcode==0x13)
         {
             beused1[rd]++;
